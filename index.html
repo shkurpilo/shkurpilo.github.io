@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0B0B0C">
+<meta name="description" content="Данила Шкурпило. Предприниматель из Батуми, строю MirOK.">
+<meta property="og:title" content="Данила Шкурпило">
+<meta property="og:description" content="Предприниматель из Батуми. Строю MirOK.">
+<style>html{color-scheme:dark;background:#0B0B0C}body{margin:0}img{max-width:100%}</style>
+<title>Данила Шкурпило</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+/* Layout: kinetic mobile page. Hero with giant name behind a cut-out photo, a lime ticker strip, full-width story chapters with oversized words, three link cards. Single dark look by choice. */
+:root{
+  --ink:#0B0B0C; --ink2:#141517; --card:#1b1c1f; --line:#2a2c2f;
+  --lime:#C6FF3D; --lime-deep:#1f2a05; --paper:#F2F1EA; --mute:#9a9da4;
+  --display:'Unbounded',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1); --spring:cubic-bezier(.34,1.56,.64,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:#fff;font-family:var(--body);overflow-x:hidden;
+  padding-block:0 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit;text-decoration:none}
+.wrap{overflow-x:clip;max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:14px;padding-top:14px}
+.bar{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;width:100%;background:var(--lime);transform-origin:0 50%;transform:scaleX(var(--p,0));z-index:20}
+
+/* top row */
+.top{display:flex;align-items:center;justify-content:space-between;padding:2px 6px}
+.logo{display:flex;align-items:center;gap:6px;font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-.03em}
+.logo i{width:8px;height:8px;border-radius:50%;background:var(--lime);animation:pulse 2s infinite}
+.live{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--lime)}
+.live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);animation:pulse 1.4s infinite}
+@keyframes pulse{50%{transform:scale(1.8);opacity:.45}}
+
+/* hero */
+.hero{position:relative;height:560px;border-radius:32px;overflow:hidden;border:1px solid var(--line);
+  background:radial-gradient(90% 55% at 50% 100%,rgba(198,255,61,.38) 0,rgba(198,255,61,0) 70%),var(--ink2)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;opacity:.35;
+  mask-image:radial-gradient(80% 60% at 50% 40%,#000,transparent);-webkit-mask-image:radial-gradient(80% 60% at 50% 40%,#000,transparent);transform:translateY(calc(var(--s,0)*-.08px))}
+.role{position:absolute;left:22px;top:20px;z-index:4;font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--mute);opacity:0;animation:fade .8s .2s forwards}
+.name{position:absolute;left:0;right:0;top:50px;z-index:1;padding:0 16px;font-family:var(--display);font-weight:900;line-height:.92;letter-spacing:-.05em;text-transform:uppercase;transform:translateY(calc(var(--s,0)*.12px))}
+.name .l1{display:block;font-size:min(7.4vw,30px);font-weight:500;letter-spacing:.2em;color:var(--paper);margin-bottom:6px}
+.name .l2{display:block;font-size:min(9.3vw,42px);color:var(--lime);white-space:nowrap}
+.ch{display:inline-block;transform:translateY(115%) rotate(8deg);opacity:0;animation:charIn .9s var(--spring) forwards;animation-delay:calc(.25s + var(--i)*.055s)}
+.clip{display:block;overflow:hidden;padding-top:.08em}
+@keyframes charIn{to{transform:none;opacity:1}}
+.photo{position:absolute;left:50%;bottom:0;z-index:2;width:min(78%,320px);transform:translateX(-50%) translateY(calc(var(--s,0)*-.05px));
+  clip-path:inset(100% 0 0 0);animation:wipe 1.2s .55s var(--ease) forwards}
+.photo img{display:block;width:100%;height:auto;filter:drop-shadow(0 18px 30px rgba(0,0,0,.55))}
+@keyframes wipe{to{clip-path:inset(0 0 0 0)}}
+.stk{position:absolute;z-index:3;opacity:0;filter:drop-shadow(0 10px 14px rgba(0,0,0,.45))}
+.stk img{display:block;width:100%;height:auto;animation:float 5s ease-in-out infinite}
+.stk.a{width:92px;right:12px;top:150px;animation:pop .9s 1.5s var(--spring) forwards;--r:12deg}
+.stk.b{width:66px;left:14px;top:300px;animation:pop .9s 1.7s var(--spring) forwards;--r:-10deg}
+.stk.c{width:84px;right:10px;top:372px;animation:pop .9s 1.9s var(--spring) forwards;--r:8deg}
+.stk.b img{animation-delay:-2s}.stk.c img{animation-delay:-3.4s}
+@keyframes pop{from{opacity:0;transform:scale(.3) rotate(calc(var(--r) * -3))}to{opacity:1;transform:scale(1) rotate(var(--r))}}
+@keyframes float{50%{transform:translateY(-10px)}}
+.glass{position:absolute;z-index:4;padding:10px 14px;border-radius:18px;background:rgba(11,11,12,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.16);font-size:12px;line-height:1.3;font-weight:600;opacity:0;animation:slide .8s var(--ease) forwards}
+.glass b{display:block;font-family:var(--display);font-size:22px;letter-spacing:-.03em;color:var(--lime)}
+.g1{left:14px;top:196px;animation-delay:2s}
+.g2{left:14px;bottom:20px;animation-delay:2.2s}
+@keyframes slide{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:none}}
+@keyframes fade{to{opacity:1}}
+
+/* ticker */
+.ticker{margin:14px -16px;overflow:hidden;background:var(--lime);color:var(--ink);transform:rotate(-2.2deg);padding:12px 0;border-block:2px solid var(--ink)}
+.track{display:flex;width:max-content;animation:run 22s linear infinite}
+.track span{font-family:var(--display);font-weight:900;font-size:19px;letter-spacing:-.02em;white-space:nowrap;padding-right:26px;text-transform:uppercase}
+.track span::after{content:"✦";margin-left:26px;font-weight:400}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* chapters */
+.chap{position:relative;border-radius:32px;overflow:hidden;padding:26px 22px 24px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.chap .k{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.chap .big{font-family:var(--display);font-weight:900;line-height:.9;letter-spacing:-.06em;text-transform:uppercase}
+.chap p{margin:0;font-size:17px;font-weight:600;line-height:1.35;max-width:15em}
+.c1{background:var(--paper);color:var(--ink)}
+.c1 .big{font-size:min(38vw,168px)}
+.c1 .big small{font-size:.26em;letter-spacing:-.03em;display:block;margin-top:6px}
+.c2{background:var(--ink2);border:1px solid var(--line)}
+.c2 .k{color:var(--lime)}
+.c2 .big{font-size:min(14.6vw,64px);position:relative;display:inline-block;align-self:flex-start}
+.c2 .big::after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:.13em;background:var(--lime);transform:scaleX(0);transform-origin:0 50%;transition:transform .8s .5s var(--ease)}
+.c2.in .big::after{transform:scaleX(1)}
+.c2 .big{transition:color .6s 1.2s}.c2.in .big{color:#5a5d63}
+.c3{background:var(--card);border:1px solid var(--line)}
+.c3 .k{color:var(--mute)}
+.c3 .big{font-size:min(12.4vw,56px);color:var(--paper)}
+.c3 .big em{font-style:normal;color:var(--lime)}
+.c4{background:var(--lime);color:var(--ink)}
+.c4 .k{color:var(--lime-deep)}
+.c4 .big{font-size:min(20vw,92px)}
+.c4 p{color:var(--lime-deep)}
+.art{position:absolute;right:-6px;bottom:-4px;width:46%;opacity:0;transform:translateY(40px) scale(.7) rotate(8deg);transition:.9s .2s var(--spring)}
+.in .art{opacity:1;transform:rotate(-4deg)}
+.art img{display:block;width:100%;height:auto;animation:float 5.5s ease-in-out infinite}
+.c4 p{max-width:9.5em}.c3 p{max-width:11.5em;font-size:15px}.c2 p{font-size:16px}
+.yrs{display:flex;gap:8px}.yrs span{font-family:var(--display);font-weight:700;font-size:15px;padding:8px 16px;border-radius:999px;border:2px solid var(--lime);color:var(--lime);letter-spacing:-.02em}
+
+/* reveal */
+.rv{transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .rv:not(.in){opacity:0;transform:translateY(46px) scale(.97)}
+.js .chap .big>span,.js .chap .k,.js .chap p{transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .chap:not(.in) .big>span,.js .chap:not(.in) .k,.js .chap:not(.in) p{opacity:0;transform:translateY(24px)}
+.chap.in .big>span:nth-child(2){transition-delay:.12s}
+.chap.in p{transition-delay:.3s}
+
+/* links */
+.links{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.links h2{margin:6px 6px 4px;font-family:var(--display);font-weight:900;font-size:28px;letter-spacing:-.05em;text-transform:uppercase}
+.btn{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 20px;border-radius:26px;transition:transform .25s var(--spring)}
+.btn:hover{transform:translateY(-3px)}
+.btn:active{transform:scale(.97)}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.btn b{display:block;font-size:18px}
+.btn span{display:block;margin-top:3px;font-size:13px}
+.btn em{font-style:normal;font-size:24px;font-weight:700;transition:transform .3s var(--spring)}
+.btn:hover em{transform:translate(4px,-4px)}
+.btn::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:shine 4.5s infinite}
+.btn:nth-of-type(2)::after{animation-delay:1.4s}.btn:nth-of-type(3)::after{animation-delay:2.8s;opacity:.4}
+@keyframes shine{0%,60%{left:-40%}100%{left:130%}}
+.b1{background:var(--lime);color:var(--ink)}.b1 span{color:var(--lime-deep)}
+.b2{background:var(--paper);color:var(--ink)}.b2 span{color:#4d5058}
+.b3{background:var(--card);border:1px solid var(--line)}.b3 span{color:var(--mute)}.b3 em{color:var(--lime)}
+.foot{text-align:center;font-size:12px;line-height:1.5;color:var(--mute);padding:10px}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .ch,.photo,.stk,.glass,.role{opacity:1!important;transform:none!important;clip-path:none!important}
+  .photo{transform:translateX(-50%)!important}
+  .js .rv:not(.in),.js .chap:not(.in) .big>span,.js .chap:not(.in) .k,.js .chap:not(.in) p{opacity:1;transform:none}
+}
+</style>
+
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="wrap">
+  <div class="top">
+    <div class="logo"><span>MirOK</span><i></i></div>
+    <div class="live">СТРОЮ ОТКРЫТО</div>
+  </div>
+
+  <section class="hero" id="hero">
+    <div class="grid"></div>
+    <div class="role">ПРЕДПРИНИМАТЕЛЬ · БАТУМИ</div>
+    <h1 class="name" style="margin:0">
+      <span class="l1 clip"><span class="split">Данила</span></span>
+      <span class="l2 clip"><span class="split">Шкурпило</span></span>
+    </h1>
+    <div class="photo"><img src="assets/me.webp" alt="Данила Шкурпило"></div>
+    <div class="stk a"><img src="assets/hook.webp" alt="" aria-hidden="true"></div>
+    <div class="stk b"><img src="assets/bubble.webp" alt="" aria-hidden="true"></div>
+    <div class="stk c"><img src="assets/bot.webp" alt="" aria-hidden="true"></div>
+    <div class="glass g1"><b>9 лет</b>в бизнесе</div>
+    <div class="glass g2"><b>SEA LIVERY</b>и MirOK</div>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div class="track" id="track">
+    <span>Пиццерия</span><span>Такси</span><span>Электросамокаты</span><span>Цветы</span><span>Giveaway</span><span>Шоколад</span><span>Магазины</span><span>Ярмарки в ТЦ</span><span>Кошачий наполнитель</span><span>Морепродукты</span>
+  </div></div>
+
+  <section class="chap c1 rv">
+    <div class="k">Глава 1 · Опыт</div>
+    <div class="big"><span><b data-count="9">9</b></span><span><small>лет в бизнесе</small></span></div>
+    <p>От пиццерии и такси до шоколада, наполнителя и морепродуктов.</p>
+  </section>
+
+  <section class="chap c2 rv">
+    <div class="k">Глава 2 · Падения</div>
+    <div class="big"><span>Банкрот</span></div>
+    <div class="yrs"><span>2022</span><span>2025</span></div>
+    <p>Банкротился дважды. Каждый раз восстанавливался.</p>
+  </section>
+
+  <section class="chap c3 rv">
+    <div class="k">Глава 3 · Грузия</div>
+    <div class="big"><span>Бату</span><span><em>ми</em></span></div>
+    <p>Приехал в Грузию, запустил доставку и производство морепродуктов. Сейчас развиваю SEA LIVERY.</p>
+    <div class="art" style="width:30%"><img src="assets/hook.webp" alt="" aria-hidden="true"></div>
+  </section>
+
+  <section class="chap c4 rv">
+    <div class="k">Глава 4 · Дальше</div>
+    <div class="big"><span>MirOK</span></div>
+    <p>ИИ-инструменты для Reels. Строю в открытую.</p>
+    <div class="art"><img src="assets/bot.webp" alt="" aria-hidden="true"></div>
+  </section>
+
+  <section class="links rv">
+    <h2>Заходи</h2>
+    <a class="btn b1" href="https://t.me/mirok_reels" target="_blank" rel="noopener"><div><b>Telegram-канал MirOK</b><span>Новые инструменты и закрытый тест</span></div><em>↗</em></a>
+    <a class="btn b2" href="https://www.instagram.com/channel/AbZXzT5UTqvY21Um/" target="_blank" rel="noopener"><div><b>Instagram-канал</b><span>Анонсы и закулисье первыми</span></div><em>↗</em></a>
+    <a class="btn b3" href="https://sea-livery.github.io" target="_blank" rel="noopener"><div><b>SEA LIVERY</b><span>Премиальные морепродукты, Батуми</span></div><em>↗</em></a>
+  </section>
+  <div class="foot">Без обещаний охватов. Только инструменты, которые можно проверить.</div>
+</div>
+
+<script>
+(function(){
+  var d=document, root=d.documentElement, reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  // split name into letters
+  [].forEach.call(d.querySelectorAll('.split'),function(el,k){
+    var t=el.textContent,i=0;el.textContent='';
+    for(var n=0;n<t.length;n++){var s=d.createElement('span');s.className='ch';s.style.setProperty('--i',n+k*3);s.textContent=t[n];el.appendChild(s)}
+  });
+  // ticker: duplicate content for a seamless loop
+  var tr=d.getElementById('track');tr.innerHTML+=tr.innerHTML;
+  // scroll progress + parallax
+  var bar=d.getElementById('bar'),hero=d.getElementById('hero'),tick=false;
+  function upd(){tick=false;var y=window.scrollY||0,h=d.body.scrollHeight-innerHeight;
+    bar.style.setProperty('--p',h>0?Math.min(1,y/h):0);hero.style.setProperty('--s',Math.min(y,700));}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});upd();
+  // reveals
+  var items=[].slice.call(d.querySelectorAll('.rv'));
+  function show(el){el.classList.add('in');var c=el.querySelector('[data-count]');if(c&&!c.done){c.done=1;count(c)}}
+  function count(c){if(reduce)return;var t=+c.dataset.count,s=performance.now();c.textContent='0';
+    (function f(n){var p=Math.min(1,(n-s)/1300);c.textContent=Math.round(t*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(s)}
+  if(!('IntersectionObserver' in window)){items.forEach(show);return}
+  root.classList.add('js');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target)}})},{threshold:.28});
+  items.forEach(function(el){io.observe(el)});
+  setTimeout(function(){items.forEach(show)},12000);
+})();
+</script>
+
+</body>
+</html>
